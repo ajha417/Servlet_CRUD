@@ -48,6 +48,7 @@ public class EmployeeDao {
 			statement.setString(2, e.getPassword());
 			statement.setString(3, e.getEmail());
 			statement.setString(4, e.getCountry());
+			statement.setInt(5, e.getId());
 			
 			status = statement.executeUpdate();
 			conn.close();
