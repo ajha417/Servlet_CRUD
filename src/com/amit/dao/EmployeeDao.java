@@ -21,13 +21,14 @@ public class EmployeeDao {
 	public static int save(Emp e) {
 		int status = 0;
 		try {
-			String query = "insert into users_of values(?,?,?,?)";
+			String query = "insert into user_of values(?,?,?,?,?)";
 			Connection conn = EmployeeDao.getConnection();
 			PreparedStatement statement = conn.prepareStatement(query);
-			statement.setString(1, e.getName());
-			statement.setString(2, e.getPassword());
-			statement.setString(3, e.getEmail());
-			statement.setString(4, e.getCountry());
+			statement.setInt(1, 34);
+			statement.setString(2, e.getName());
+			statement.setString(3, e.getPassword());
+			statement.setString(4, e.getEmail());
+			statement.setString(5, e.getCountry());
 			
 			status = statement.executeUpdate();
 			conn.close();
@@ -41,7 +42,7 @@ public class EmployeeDao {
 		int status = 0;
 		try {
 			
-			String query = "update users_of set name=?,password=?,email=?,country=? where id=?";
+			String query = "update user_of set name=?,password=?,email=?,country=? where id=?";
 			Connection conn = EmployeeDao.getConnection();
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, e.getName());
@@ -64,7 +65,7 @@ public class EmployeeDao {
 		int status = 0;
 		try 
 		{
-			String  query = "delete from users_of where id=?";
+			String  query = "delete from user_of where id=?";
 			Connection conn = EmployeeDao.getConnection();
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setInt(1, id);
@@ -80,7 +81,7 @@ public class EmployeeDao {
 	public static Emp getEmployee(int id) {
 		Emp e = new Emp();
 		try {
-			String query = "select * from users_of where id=?";
+			String query = "select * from user_of where id=?";
 			Connection conn = EmployeeDao.getConnection();
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setInt(1, id);
@@ -104,7 +105,7 @@ public class EmployeeDao {
 	public static List<Emp> getAllEmployees() {
 		List<Emp> list = new ArrayList<Emp>();
 		try {
-			String query = "select * from users_of";
+			String query = "select * from user_of";
 			Connection conn = EmployeeDao.getConnection();
 			PreparedStatement statement = conn.prepareStatement(query);
 			ResultSet rs = statement.executeQuery();
