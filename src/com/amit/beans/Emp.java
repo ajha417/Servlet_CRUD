@@ -3,7 +3,7 @@ package com.amit.beans;
 public class Emp {
 
 	private int id;
-	private String name, password, email;
+	private String name, password, email,country;
 	public int getId() {
 		return id;
 	}
@@ -29,5 +29,10 @@ public class Emp {
 		this.email = email;
 	}
 	
-	
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
 }
